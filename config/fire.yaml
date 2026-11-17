@@ -1,0 +1,12 @@
+disaster: fire
+environment:
+  darkness: 0.5
+  dust: 0.1
+  smoke: 0.8             # smoke density near fires (scaled by severity)
+  heat: 0.9              # heat interference / thermal saturation
+  water: 0.0
+  acoustic_noise: 0.6    # fire crackle, alarms
+  rubble_density: 0.03
+  wheel_slip: 0.05
+  lidar_noise: 0.3       # smoke scattering
+  audio_attenuation: 0.0

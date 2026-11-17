@@ -1,0 +1,11 @@
+{
+ "device": "cpu",
+ "samples": 56418,
+ "missions": 45,
+ "epochs": 40,
+ "collect_seconds": 105.5,
+ "train_seconds": 187.5,
+ "val_mae_learned": 0.0422,
+ "val_mae_hybrid_formula_unsmoothed": 0.1354,
+ "note": "validation rows are per-step samples from held-out shuffle of the same missions"
+}

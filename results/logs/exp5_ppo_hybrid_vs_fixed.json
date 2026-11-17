@@ -1,0 +1,101 @@
+[
+ {
+  "metric": "coverage",
+  "a": "E3 PPO/fixed",
+  "b": "E4 PPO/hybrid",
+  "n": 54,
+  "mean_diff_b_minus_a": 0.11943554104761539,
+  "ci95_low": 0.0339320799806782,
+  "ci95_high": 0.20997932202987388,
+  "b_better": 28,
+  "tie": 6,
+  "b_worse": 20
+ },
+ {
+  "metric": "victims_found",
+  "a": "E3 PPO/fixed",
+  "b": "E4 PPO/hybrid",
+  "n": 54,
+  "mean_diff_b_minus_a": 0.8333333333333334,
+  "ci95_low": 0.35185185185185186,
+  "ci95_high": 1.3518518518518519,
+  "b_better": 22,
+  "tie": 22,
+  "b_worse": 10
+ },
+ {
+  "metric": "f1",
+  "a": "E3 PPO/fixed",
+  "b": "E4 PPO/hybrid",
+  "n": 54,
+  "mean_diff_b_minus_a": 0.1946761319855002,
+  "ci95_low": 0.0914462430271254,
+  "ci95_high": 0.3060405905721811,
+  "b_better": 27,
+  "tie": 15,
+  "b_worse": 12
+ },
+ {
+  "metric": "collisions",
+  "a": "E3 PPO/fixed",
+  "b": "E4 PPO/hybrid",
+  "n": 54,
+  "mean_diff_b_minus_a": -6.648148148148148,
+  "ci95_low": -11.16712962962963,
+  "ci95_high": -2.740740740740741,
+  "b_better": 2,
+  "tie": 35,
+  "b_worse": 17
+ },
+ {
+  "metric": "ate",
+  "a": "E3 PPO/fixed",
+  "b": "E4 PPO/hybrid",
+  "n": 54,
+  "mean_diff_b_minus_a": -3.335933549476618,
+  "ci95_low": -4.975897560837653,
+  "ci95_high": -1.8996624905698123,
+  "b_better": 8,
+  "tie": 2,
+  "b_worse": 44
+ },
+ {
+  "metric": "victims_found",
+  "a": "E3 PPO/fixed",
+  "b": "E4 PPO/hybrid",
+  "n": 18,
+  "mean_diff_b_minus_a": 0.0,
+  "ci95_low": -0.2777777777777778,
+  "ci95_high": 0.3333333333333333,
+  "b_better": 2,
+  "tie": 13,
+  "b_worse": 3,
+  "condition": "nominal"
+ },
+ {
+  "metric": "victims_found",
+  "a": "E3 PPO/fixed",
+  "b": "E4 PPO/hybrid",
+  "n": 18,
+  "mean_diff_b_minus_a": 2.8333333333333335,
+  "ci95_low": 2.0555555555555554,
+  "ci95_high": 3.5555555555555554,
+  "b_better": 16,
+  "tie": 2,
+  "b_worse": 0,
+  "condition": "degraded"
+ },
+ {
+  "metric": "victims_found",
+  "a": "E3 PPO/fixed",
+  "b": "E4 PPO/hybrid",
+  "n": 18,
+  "mean_diff_b_minus_a": -0.3333333333333333,
+  "ci95_low": -1.0,
+  "ci95_high": 0.3333333333333333,
+  "b_better": 4,
+  "tie": 7,
+  "b_worse": 7,
+  "condition": "lidar+thermal"
+ }
+]

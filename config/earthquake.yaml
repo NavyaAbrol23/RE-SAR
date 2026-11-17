@@ -1,0 +1,12 @@
+disaster: earthquake
+environment:
+  darkness: 0.3          # collapsed structure, limited light
+  dust: 0.6              # airborne dust (scaled by severity)
+  smoke: 0.0
+  heat: 0.0
+  water: 0.0
+  acoustic_noise: 0.3    # creaking, aftershocks
+  rubble_density: 0.10
+  wheel_slip: 0.25       # slip probability on rubble
+  lidar_noise: 0.5       # dust scattering multiplier
+  audio_attenuation: 0.1

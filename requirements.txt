@@ -1,0 +1,15 @@
+# RE-SAR — tested with Python 3.13 (Linux, CPU) using the newest versions below;
+# targets Python 3.11+ on Windows. Lower bounds are the oldest versions with the APIs used.
+numpy>=1.26
+pandas>=2.1
+PyYAML>=6.0
+pygame>=2.5
+opencv-python>=4.8
+matplotlib>=3.8
+gymnasium>=0.29
+stable-baselines3>=2.3
+# PyTorch: for the RTX 4060 install the CUDA build FIRST (see README, step 3), e.g.
+#   pip install torch --index-url https://download.pytorch.org/whl/cu126
+# otherwise pip installs a CPU build, which also works (everything has a CPU fallback).
+torch>=2.1
+pytest>=7.4

@@ -1,0 +1,12 @@
+disaster: flood
+environment:
+  darkness: 0.25
+  dust: 0.0
+  smoke: 0.0
+  heat: 0.0
+  water: 0.8             # waterlogged region coverage (scaled by severity)
+  acoustic_noise: 0.4    # running water
+  rubble_density: 0.04
+  wheel_slip: 0.45       # slippery surfaces
+  lidar_noise: 0.4       # specular water surfaces -> dropouts
+  audio_attenuation: 0.5

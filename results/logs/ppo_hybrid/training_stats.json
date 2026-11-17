@@ -1,0 +1,10 @@
+{
+  "name": "ppo_hybrid",
+  "timesteps": 25000,
+  "n_envs": 1,
+  "device": "cpu",
+  "training_seconds": 5596.9,
+  "episodes": 1062,
+  "final_rolling_reward": 28.86083487735848,
+  "model_path": "rl/models/ppo_hybrid.zip"
+}

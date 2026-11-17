@@ -1,0 +1,108 @@
+# RE-SAR default configuration. Disaster files (earthquake/fire/flood.yaml) override these keys.
+seed: 42
+
+world:
+  width: 40            # cells
+  height: 30           # cells
+  difficulty: medium   # easy | medium | hard
+  severity: 0.5        # disaster severity in [0, 1]
+  num_victims: 5
+  num_visual_decoys: 3 # skin-coloured debris (RGB false-positive source)
+  num_thermal_decoys: 2 # warm non-human objects (thermal false-positive source)
+  impassable_hazard: 0.85  # GT hazard intensity above which a cell cannot be entered
+
+robot:
+  max_steps: 450
+  rot_noise: 0.02        # rad, true actuation noise when turning
+  move_noise: 0.03       # cells, true actuation noise when driving
+
+sensors:
+  lidar:
+    beams: 72
+    max_range: 8.0
+    noise_std: 0.05
+    dropout: 0.01
+  rgb:
+    fov_deg: 120
+    range: 6
+    px_per_cell: 8
+  thermal:
+    fov_deg: 120
+    range: 6
+    px_per_cell: 8
+    t_sat: 120.0          # nominal saturation temperature (C)
+  imu:
+    noise_std: 0.01
+    bias: 0.002
+    drift: 0.0005
+  odometry:
+    noise_std: 0.02
+    slip_scale: 0.35
+  audio:
+    call_prob: 0.35
+    responsive_fraction: 0.75
+    source_level: 1.0
+    ref_distance: 2.0
+    wall_attenuation: 0.6
+    detect_snr: 1.5
+    doa_std: 0.12
+
+degradation_levels:   # manual fault injection -> extra degradation in [0,1]
+  normal: 0.0
+  mild: 0.35
+  severe: 0.7
+  failed: 1.0
+
+reliability:
+  strategy: hybrid    # fixed | env | quality | env_quality | env_quality_health | hybrid
+  w_env: 0.35
+  w_quality: 0.45
+  w_cross: 0.20
+  smoothing: 0.3      # EMA factor for temporal smoothing (weight of new value)
+  failure_threshold: 0.15
+  command_prior: 0.15 # weight of commanded motion as last-resort fallback
+
+mapping:
+  l_occ: 0.85
+  l_free: -0.4
+  l_min: -4.0
+  l_max: 4.0
+  known_threshold: 0.4   # |log-odds| above which a cell counts as known
+  occ_prob: 0.65
+  free_prob: 0.35
+
+perception:
+  gate: 2.0              # data-association gate (cells)
+  confirm_prob: 0.85
+  # per-frame detection / false-alarm probabilities (measured on nominal frames, see docs/methodology.md)
+  p_hit: {rgb: 0.3, thermal: 0.8, audio: 0.5}
+  p_fa: {rgb: 0.02, thermal: 0.03, audio: 0.15}
+  single_modality_confirm: 0.97   # stricter threshold when only one modality supports a track
+
+navigation:
+  strategy: infogain     # random | nearest | infogain | ppo
+  ig_radius: 4
+  ig_lambda: 0.08
+  hazard_cost: 6.0
+  unknown_cost: 1.5
+  replan_every: 12
+  max_frontiers: 8
+
+rl:
+  macro_steps: 15        # low-level steps per RL action
+  reward:
+    alpha: 1.0           # information gain
+    beta: 5.0            # new victim confirmed
+    eta: 2.0             # exploration progress (coverage delta)
+    gamma: 0.02          # travel cost per cell
+    delta: 0.3           # hazard exposure
+    lambda: 1.0          # collision penalty
+    invalid_action: 0.2
+  ppo:
+    learning_rate: 0.0003
+    n_steps: 1024
+    batch_size: 64
+    gamma: 0.99
+    gae_lambda: 0.95
+    clip_range: 0.2
+    total_timesteps: 100000
