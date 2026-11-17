@@ -238,24 +238,3 @@ All results are paired comparisons on unseen seeds, with 95% bootstrap CIs. Mode
 | PPO/hybrid vs PPO/fixed | Coverage **+0.12**, victims **+0.83**, F1 **+0.20**, collisions **−6.6** |
 | PPO vs heuristics | PPO did **not** beat nearest-frontier or info-gain (coverage −0.03, n.s.; longer paths) |
 
-## UCS760 course alignment
-
-- **RL:** Gymnasium env, PPO (GAE / TD targets), reward design, evaluation on unseen maps.
-- **Computer vision:** RGB and thermal processing, multi-modal victim detection.
-- **Robotics:** EKF, scan matching, occupancy grids, A*, frontiers, safety, sensor fusion.
-- **GPU:** CUDA auto-selection with CPU fallback.
-
-The full mapping is in `docs/experimental_results.md`. Conversational AI was optional and was not implemented.
-
-## Project structure
-
-See [`docs/technical_specification.md`](docs/technical_specification.md) for every module's inputs and outputs, [`docs/methodology.md`](docs/methodology.md) for the equations, and [`docs/experimental_results.md`](docs/experimental_results.md) for executed results.
-
-## Verify on your own machine (RTX 4060 laptop)
-
-These could not be checked in the development sandbox, which had no display and no GPU:
-
-1. `python main.py`: the window opens, the menu works, and Start runs a mission. Click sensor levels, Pause/Step, View, Nav and Fusion.
-2. `python -c "import torch; print(torch.cuda.is_available())"` prints `True`.
-3. `python -m rl.train --reliability hybrid --timesteps 100000 --n-envs 4 --device cuda`: the log line shows `device=cuda`.
-4. Re-run Exp 5 with the stronger models: `python -m experiments.exploration_comparison --seeds 6`.
